@@ -98,7 +98,7 @@ return $sdk->callback($resource, $request->all(), function () {
 /**
  * @var \ShanchengPay\ShanchengPay $sdk
  */
-$sdk = new \ShanchengPay\ShanchengPay;
+$sdk = new \ShanchengPay\ShanchengPay('你的 accessKeyId', '你的 accessKeySecret');
 $pay = new \ShanchengPay\Payment();
 
 $pay->out_trade_no  = 1; // 订单号
@@ -141,7 +141,7 @@ return json_encode($sdk->pay($pay));
 /**
  * @var \ShanchengPay\ShanchengPay $sdk
  */
-$sdk = new \ShanchengPay\ShanchengPay;
+$sdk = new \ShanchengPay\ShanchengPay('你的 accessKeyId', '你的 accessKeySecret');
 $resource = $_SERVER['REQUEST_URI'];
 
 return $sdk->callback($resource, $_POST, function () {

@@ -1,0 +1,42 @@
+{
+    "name": "023pay/sdk",
+    "description": "山城清算SDK开发包，已对laravel优化",
+    "authors": [
+        {
+            "name": "Xiaohui Lam",
+            "email": "lam@staff.digital-sign.cn"
+        },
+        {
+            "name": "Vicshs",
+            "email": "vicshs@shiling.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "guzzlehttp/guzzle": ">=4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">4.0",
+        "laravel/laravel": ">=5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShanchengPay\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ShanchengPay\\Test": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ShanchengPay\\Laravel\\ShanchengPayServiceProvider"
+            ],
+            "aliases": {
+                "ShanchengPay": "ShanchengPay\\Laravel\\ShanchengPay"
+            }
+        }
+    }
+}

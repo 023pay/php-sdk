@@ -42,7 +42,7 @@ class ShanchengPay
      *
      * @var string
      */
-    protected $base_uri = 'https://www.023pay.cn';
+    protected $base_uri = 'https://pay.digital-sign.com.cn'; #'https://www.023pay.cn';
 
     public function __construct($accessKeyId, $accessKeySecret)
     {

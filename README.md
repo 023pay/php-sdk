@@ -84,8 +84,34 @@ return json_encode($sdk->pay($pay));
 $sdk = app('023pay');
 $resource = $_SERVER['REQUEST_URI'];
 
-return $sdk->callback($resource, $request->all(), function () {
-    // 发货逻辑
+return $sdk->callback($resource, $request->all(), function () use ($request) {
+    //发货逻辑
+    //$request->all() 可以取到:
+    //{
+    //  "accessKeyId": "4LUUPmxRtGEmC7ut",
+    //  "appid": "wx0fb1c570def9d2a1",
+    //  "applyment_business_code": "19",
+    //  "bank_type": "CMB_CREDIT",
+    //  "body": "测试商品",
+    //  "cash_fee": "1",
+    //  "fee_type": "CNY",
+    //  "id": "93",
+    //  "is_subscribe": "N",
+    //  "mch_id": "1420282202",
+    //  "nonce": "5db44ab93ffb3",
+    //  "nonce_str": "5db44aa86c7c3",
+    //  "openid": "o-3siwCyOVL0j1lBz-u8OG_KX9Aw",
+    //  "out_trade_no": "orZRMO6gPlzMPXj3",
+    //  "result_code": "SUCCESS",
+    //  "return_code": "SUCCESS",
+    //  "sub_mch_id": "1559961621",
+    //  "time_end": "20191026213136",
+    //  "timestamp": "2019-10-26T21:31:37Z",
+    //  "total_fee": "1",
+    //  "trade_type": "NATIVE",
+    //  "transaction_id": "4200000435201910266139998759",
+    //  "sign": "eEovtq8bOc+g+ff7yQ7Krp8euLwtrI/PufyPxwY9fgY="
+    //}
     return 'SUCCESS'; //发货成功务必返回SUCCESS或OK，否则会被重复通知
 });
 ```
@@ -145,7 +171,33 @@ $sdk = new \ShanchengPay\ShanchengPay('你的 accessKeyId', '你的 accessKeySec
 $resource = $_SERVER['REQUEST_URI'];
 
 return $sdk->callback($resource, $_POST, function () {
-    // 发货逻辑
+    //发货逻辑
+    //$_POST 可以取到
+    //{
+    //  "accessKeyId": "4LUUPmxRtGEmC7ut",
+    //  "appid": "wx0fb1c570def9d2a1",
+    //  "applyment_business_code": "19",
+    //  "bank_type": "CMB_CREDIT",
+    //  "body": "测试商品",
+    //  "cash_fee": "1",
+    //  "fee_type": "CNY",
+    //  "id": "93",
+    //  "is_subscribe": "N",
+    //  "mch_id": "1420282202",
+    //  "nonce": "5db44ab93ffb3",
+    //  "nonce_str": "5db44aa86c7c3",
+    //  "openid": "o-3siwCyOVL0j1lBz-u8OG_KX9Aw",
+    //  "out_trade_no": "orZRMO6gPlzMPXj3",
+    //  "result_code": "SUCCESS",
+    //  "return_code": "SUCCESS",
+    //  "sub_mch_id": "1559961621",
+    //  "time_end": "20191026213136",
+    //  "timestamp": "2019-10-26T21:31:37Z",
+    //  "total_fee": "1",
+    //  "trade_type": "NATIVE",
+    //  "transaction_id": "4200000435201910266139998759",
+    //  "sign": "eEovtq8bOc+g+ff7yQ7Krp8euLwtrI/PufyPxwY9fgY="
+    //}
     return 'SUCCESS'; //发货成功务必返回SUCCESS或OK，否则会被重复通知
 });
 ```

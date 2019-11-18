@@ -170,6 +170,10 @@ return json_encode($sdk->pay($pay));
 $sdk = new \ShanchengPay\ShanchengPay('你的 accessKeyId', '你的 accessKeySecret');
 $resource = $_SERVER['REQUEST_URI'];
 
+if (!count($_POST)) {
+    $_POST = json_decode(file_get_contents('php://input'), true);
+}
+
 return $sdk->callback($resource, $_POST, function () {
     //发货逻辑
     //$_POST 可以取到

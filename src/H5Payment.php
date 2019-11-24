@@ -5,11 +5,20 @@ namespace ShanchengPay;
 use ShanchengPay\Traits\withToArray;
 
 /**
- * Native 支付请求类
+ * H5 支付请求类
  */
-class Payment
+class H5Payment
 {
     use withToArray;
+
+    const ATTRIBUTES_TO_ARRAY = [
+        'out_trade_no',
+        'total_fee',
+        'body',
+        'notify_url',
+        'redirect_url',
+        'trade_type',
+    ];
 
     /**
      * 交易单号
@@ -39,18 +48,18 @@ class Payment
      */
     public $notify_url;
 
+
+    /**
+     * H5跳转地址
+     *
+     * @var string
+     */
+    public $redirect_url;
+
     /**
      * 交易类型，NATIVE
      *
      * @var string
      */
-    public $trade_type = 'NATIVE';
-
-    const ATTRIBUTES_TO_ARRAY = [
-        'out_trade_no',
-        'total_fee',
-        'body',
-        'notify_url',
-        'trade_type',
-    ];
+    public $trade_type = 'MWEB';
 }

@@ -5,11 +5,20 @@ namespace ShanchengPay;
 use ShanchengPay\Traits\withToArray;
 
 /**
- * Native 支付请求类
+ * 微信小程序支付请求类
  */
-class Payment
+class MiniProgramPayment
 {
     use withToArray;
+
+    const ATTRIBUTES_TO_ARRAY = [
+        'out_trade_no',
+        'total_fee',
+        'body',
+        'notify_url',
+        'redirect_url',
+        'trade_type',
+    ];
 
     /**
      * 交易单号
@@ -44,13 +53,5 @@ class Payment
      *
      * @var string
      */
-    public $trade_type = 'NATIVE';
-
-    const ATTRIBUTES_TO_ARRAY = [
-        'out_trade_no',
-        'total_fee',
-        'body',
-        'notify_url',
-        'trade_type',
-    ];
+    public $trade_type = 'MINIAPP';
 }
